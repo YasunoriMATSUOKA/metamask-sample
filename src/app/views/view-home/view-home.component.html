@@ -1,0 +1,30 @@
+<h1>Home</h1>
+
+<h2>Connect to MetaMask</h2>
+<div>Current Address: {{ currentAccount }}</div>
+<div>Current Network: {{ currentNetwork }}</div>
+<button (click)="onConnectToMetaMask()">Connect</button>
+
+<h2>Deploy Greeter Contract</h2>
+<div>Contract Address: {{ contract?.address }}</div>
+<div>Deploy Transaction Hash: {{ deployTransaction?.hash }}</div>
+<button (click)="onDeployGreeterContract()">Deploy</button>
+
+<h2>Call greet function</h2>
+<h3>Greeting Message History</h3>
+<ng-container *ngFor="let greet of greets">
+  <div>{{ greet }}</div>
+</ng-container>
+<button (click)="onCallGreetFunction()">Greet</button>
+
+<h2>Call set greeting function</h2>
+<h3>Set new greeting message</h3>
+<form #formRef="ngForm" (submit)="onCallSetGreetingFunction(newGreetingMessageRef.value)">
+  <input
+    type="text"
+    #newGreetingMessageRef
+    name="newGreetingMessage"
+    required
+  />
+  <button [disabled]="formRef.invalid">Set New Message</button>
+</form>
