@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "NODE_ENV=production ng build",
+    "watch": "NODE_ENV=production ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
